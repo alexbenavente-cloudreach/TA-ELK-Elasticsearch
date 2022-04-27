@@ -4,7 +4,7 @@ resource "aws_instance" "elasticsearch_server" {
   instance_type          = var.ec2_type
   subnet_id              = data.aws_subnet.private.id
   vpc_security_group_ids = [aws_security_group.elasticsearch_sg.id]
-  key_name               = var.aws_keypair
+  key_name               = var.my_keypair
   associate_public_ip_address = true
   
 

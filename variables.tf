@@ -22,7 +22,7 @@ variable "ec2_type" {
 
 
 variable "my_keypair" {
-  default = "EC2 key pair"
+  default = "elk_keypair"
 }
 
 variable "number_of_instances" {
