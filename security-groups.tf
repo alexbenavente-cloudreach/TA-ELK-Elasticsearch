@@ -9,14 +9,14 @@ resource "aws_security_group" "elasticsearch_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["192.168.2.0/16"] 
+    cidr_blocks = ["192.168.0.0/16"] 
   }
   ingress {
     description = "ingress rules"
     from_port = 9200
     to_port = 9300
     protocol = "tcp"
-    cidr_blocks = ["192.168.2.0/16"]
+    cidr_blocks = ["192.168.0.0/16"]
   }
   egress {
     description = "egress rules"
