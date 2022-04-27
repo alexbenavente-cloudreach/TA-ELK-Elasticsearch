@@ -9,7 +9,7 @@ resource "aws_instance" "elasticsearch_server" {
   
 
   tags = {
-    Name = "talent-academy-elasticsearch-server"
+    Name = "elk1_elasticsearch_server"
   }
 }
 
