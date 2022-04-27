@@ -49,20 +49,21 @@
         destfile: /etc/elasticsearch/elasticsearch.yml
         regexp: 'http.port:'
         line: 'http.port: 9200'
-      notify:
-        - Start Elasticsearch
-        - Enable Elasticsearch
 
+# Update Elasticsearch Discovery in config file 
+    - name: Updating the discovery in config file 
+      lineinfile:
+        destfile: /etc/elasticsearch/elasticsearch.yml
+        regexp: 'discovery.seed_hosts:'
+        line: 'discovery.seed_hosts: []'
 
-  handlers:
-    - name: Start Elasticsearch
-      systemd:
-        name: elasticsearch
-        state: started
-
-    - name: Enable Elasticsearch
+# Enable and start the Elasticsearch service
+    - name: Enabling Elasticsearch
       systemd:
         name: elasticsearch
         enabled: yes
 
-
+    - name: Starting Elasticsearch
+      systemd:
+        name: elasticsearch
+        state: started
