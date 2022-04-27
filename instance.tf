@@ -12,3 +12,4 @@ resource "aws_instance" "elasticsearch_server" {
     Name = "talent-academy-elasticsearch-server"
   }
 }
+

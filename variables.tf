@@ -20,7 +20,6 @@ variable "ec2_type" {
   default     = "t3.medium"
 }
 
-
 variable "my_keypair" {
   default = "elk_keypair"
 }
