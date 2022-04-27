@@ -26,8 +26,17 @@ jobs:
               aws-region: us-east-1
               role-session-name: GitHubActionsTF
 
+          - name: Setup Terraform
+            uses: hashicorp/setup-terraform@v1
+
+          - name: Terraform Init
+            run: terraform init
+          
           - name: Terraform Format
             run: terraform fmt -check
+
+          - name: Terraform Validate
+            run: terraform validate  
 
           - name: Terraform Plan
             run: terraform plan
