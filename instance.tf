@@ -1,5 +1,4 @@
 resource "aws_instance" "elasticsearch_server" {
-  count                       = 1
   ami                         = data.aws_ami.aws_ubuntu_server.id
   instance_type               = var.ec2_type
   subnet_id                   = data.aws_subnet.private.id
@@ -12,4 +11,24 @@ resource "aws_instance" "elasticsearch_server" {
     Name = "elk1_elasticsearch_server"
   }
 }
+
+
+resource "aws_ebs_volume" "ebsvolume" {
+  availability_zone = "us-east-1a"
+  size = 50
+  encrypted = false
+  tags = {
+    name = "ebs-volume"
+  }
+
+}
+
+resource "aws_volume_attachment" "datavol" {
+  device_name = "/dev/sdh"
+  instance_id = aws_instance.elasticsearch_server.id
+  volume_id = aws_ebs_volume.ebsvolume.id
+}
+
+
+
 
