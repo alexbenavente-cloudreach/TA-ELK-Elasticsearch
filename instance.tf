@@ -18,7 +18,7 @@ resource "aws_ebs_volume" "ebsvolume" {
   size = 50
   encrypted = false
   tags = {
-    name = "ebs-volume"
+    name = "EBS_Elastic"
   }
 
 }
