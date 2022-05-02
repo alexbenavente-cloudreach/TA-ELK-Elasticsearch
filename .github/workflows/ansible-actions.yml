@@ -31,4 +31,4 @@ jobs:
             with:
               playbook: ./ansible/main-playbook.yml
               options: |
-                --inventory-file inventory
+                --inventory-file ./ansible/inventory
