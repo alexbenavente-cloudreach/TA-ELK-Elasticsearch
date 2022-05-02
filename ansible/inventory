@@ -6,4 +6,4 @@
 
 [elasticsearch_server:vars]
 ansible_user=ubuntu
-ansible_ssh_common_args="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ProxyCommand=\"ssh -q ubuntu@54.89.167.142 -o IdentityFile=~/.ssh/elk_keypair.pem -W %h:%p\""
+ansible_ssh_common_args=" -o ProxyCommand=\"ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -q ubuntu@54.89.167.142 -o IdentityFile=~/.ssh/elk_keypair.pem -W %h:%p\""
