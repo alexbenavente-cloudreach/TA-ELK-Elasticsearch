@@ -8,7 +8,11 @@ on:
 jobs:
     deploy:
         runs-on: ubuntu-latest
-        
+        permissions:
+          packages: write
+          contents: read
+          id-token: write
+          
         steps:
           - run: echo "GitHub Actions Ansible"
 
@@ -20,7 +24,7 @@ jobs:
             with:
               role-to-assume: arn:aws:iam::254964228601:role/elk1-github-oidc
               aws-region: us-east-1
-              role-session-name: GitHubActionsTF
+              role-session-name: GitHubActions
 
           - name: Perform ansible playbook to deploy
             uses: dawidd6/action-ansible-playbook@v2
