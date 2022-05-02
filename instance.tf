@@ -15,8 +15,8 @@ resource "aws_instance" "elasticsearch_server" {
 
 resource "aws_ebs_volume" "ebsvolume" {
   availability_zone = "us-east-1a"
-  size = 50
-  encrypted = false
+  size              = 50
+  encrypted         = false
   tags = {
     name = "EBS_Elastic"
   }
@@ -26,7 +26,7 @@ resource "aws_ebs_volume" "ebsvolume" {
 resource "aws_volume_attachment" "datavol" {
   device_name = "/dev/sdh"
   instance_id = aws_instance.elasticsearch_server.id
-  volume_id = aws_ebs_volume.ebsvolume.id
+  volume_id   = aws_ebs_volume.ebsvolume.id
 }
 
 
