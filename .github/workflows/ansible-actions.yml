@@ -7,13 +7,13 @@ on:
 
 jobs:
     deploy:
-        runs-on: ubuntu-20.04
+        runs-on: ubuntu-latest
         
         steps:
-          - run: echo "GitHub Actions TF"
+          - run: echo "GitHub Actions Ansible"
 
           - name: Checkout
-            uses: actions/checkout@v2
+            uses: actions/checkout@v3
           
           - name: AWS Authentication
             uses: aws-actions/configure-aws-credentials@v1
@@ -23,6 +23,6 @@ jobs:
               role-session-name: GitHubActionsTF
 
           - name: Perform ansible playbook to deploy
-            uses: actions-ansible@v2
+            uses: dawidd6/action-ansible-playbook@v2
             with:
               playbook: ./ansible/main-playbook.yml
