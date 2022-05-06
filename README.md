@@ -1,4 +1,4 @@
-UPDATE1
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
